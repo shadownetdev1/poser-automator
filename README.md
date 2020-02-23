@@ -20,9 +20,9 @@ L Key: Enable or Disable lightning round (enabled shows the "lightningRound.jpg"
 
 Number Keys (1 through 8): Show each pose in order (Not yet impemented)
 
-Note: If using multiple monitors on windows you can move a window to a different monitor using ![Windows Key](https://raw.githubusercontent.com/shadownetdev1/poser-automator/master/README_WINDOWS_LOGO.jpg | width=50) + Shift + (Left or Right) Arrow Keys
+Note: If using multiple monitors on windows you can move a window to a different monitor using <img src="https://raw.githubusercontent.com/shadownetdev1/poser-automator/master/README_WINDOWS_LOGO.jpg" width="48" alt="Windows Key"> + Shift + (Left or Right) Arrow Keys
 
-<img src="https://raw.githubusercontent.com/shadownetdev1/poser-automator/master/README_WINDOWS_LOGO.jpg" width="48" alt="Windows Key">
+
 
 ## TODO
 - [x] Write the script
