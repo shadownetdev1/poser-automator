@@ -1,0 +1,115 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Poser</title>
+		<meta name="description" content="Poser Automator">
+		<meta name="author" content="Andrew Harris">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.imgbox {
+				display: grid;
+				height: 100%;
+			}
+			.center-fit {
+				max-width: 100%;
+				max-height: 100vh;
+				margin: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id = "box" class="imgbox">
+			<img id = "image_frame" src = "Slides/titleSlide.jpg" class="center-fit"></img>
+		</div>
+		<script>
+			//TODO options for lighting round and show off slides
+			//Setup
+			var path = "Slides/";
+			var title_slide = "titleSlide.jpg"; //t
+			var all_slide = "allPoses.jpg"; //p
+			var lighting_slide = "lightningRound.jpg"; //l
+			var showoff_slide = "theShowoff.jpg"; //s
+			var slides = [
+				"buffCity.jpg",
+				"jazzHands.jpg",
+				"superJazzHands.jpg",
+				"tarzan.jpg",
+				"theDuke.jpg",
+				"theMindReader.jpg",
+				"theNinja.jpg",
+				"theSpy.jpg",
+			];
+			var on_pose = false;
+			var lighting_round = false;
+			function get_random_image(img_ar, p) {
+				p = path || "Slides/";
+				var num = Math.floor(Math.random() * img_ar.length);
+				var img = img_ar[num];
+				document.getElementById("image_frame").setAttribute("src", p + img);
+			}
+			//Wait for keypress
+			window.onkeypress = function(event) {
+				if (document.fullscreenElement == null) {
+					box = document.getElementById("box");
+					box.requestFullscreen()
+					.then(function() {
+						// element has entered fullscreen mode successfully
+					})
+					.catch(function(error) {
+						// element could not enter fullscreen mode
+						// error message
+						console.log(error.message);
+					});
+				}
+				//https://asciitable.com
+				if (event.keyCode == 32) { //[space] key; decimal 32; hex 20; oct 40;
+					console.log(lighting_round)
+					if (lighting_round == true) {
+						//Pick random slide
+						get_random_image(slides);
+					} else if (on_pose == true) {
+						//Pick random slide
+						get_random_image(slides);
+						on_pose = false;
+					} else {
+						//Display poses slide
+						document.getElementById("image_frame").setAttribute("src", path + all_slide);
+						on_pose = true;
+					}
+				} else if (event.keyCode == 116) { //T key; decimal 116; hex 74; oct 164;
+					//Display title slide
+					document.getElementById("image_frame").setAttribute("src", path + title_slide);
+					on_pose = false;
+				} else if (event.keyCode == 112) { //P key; decimal 112; hex 70; oct 160;
+					//Display poses slide
+					document.getElementById("image_frame").setAttribute("src", path + all_slide);
+					on_pose = true;
+				} else if (event.keyCode == 97) { //A key; decimal 97; hex 61; oct 141;
+					//Display poses slide
+					document.getElementById("image_frame").setAttribute("src", path + all_slide);
+					on_pose = true;
+				} else if (event.keyCode == 115) { //S key; decimal 115; hex 73; oct 163;
+					//Display showoff slide
+					document.getElementById("image_frame").setAttribute("src", path + showoff_slide);
+				} else if (event.keyCode == 108) { //L key; decimal 108; hex 6C; oct 154;
+					if (lighting_round == false) {
+						//Display lighting slide
+						document.getElementById("image_frame").setAttribute("src", path + lighting_slide);
+						lighting_round = true;
+					} else {
+						//Display poses slide
+						document.getElementById("image_frame").setAttribute("src", path + all_slide);
+						on_pose = true;
+						lighting_round = false;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
