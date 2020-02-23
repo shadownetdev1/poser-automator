@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<title>Poser</title>
 		<meta name="description" content="Poser Automator">
-		<meta name="author" content="Andrew Harris">
+		<meta name="author" content="Andrew Harris (shadownetdev1)">
 		<style>
 			* {
 				margin: 0;
@@ -28,7 +28,6 @@
 			<img id = "image_frame" src = "Slides/titleSlide.jpg" class="center-fit"></img>
 		</div>
 		<script>
-			//TODO options for lighting round and show off slides
 			//Setup
 			var path = "Slides/";
 			var title_slide = "titleSlide.jpg"; //t
@@ -54,6 +53,7 @@
 				document.getElementById("image_frame").setAttribute("src", p + img);
 			}
 			//Wait for keypress
+			//https://asciitable.com
 			window.onkeypress = function(event) {
 				if (document.fullscreenElement == null) {
 					box = document.getElementById("box");
@@ -66,9 +66,7 @@
 						// error message
 						console.log(error.message);
 					});
-				}
-				//https://asciitable.com
-				if (event.keyCode == 32) { //[space] key; decimal 32; hex 20; oct 40;
+				} else if (event.keyCode == 32) { //[space] key; decimal 32; hex 20; oct 40;
 					console.log(lighting_round)
 					if (lighting_round == true) {
 						//Pick random slide
