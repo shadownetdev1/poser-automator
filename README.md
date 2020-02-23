@@ -25,6 +25,6 @@ Number Keys (1 through 8): Show each pose in order (Not yet impemented)
 - [x] Test the script
 - [x] Add folder image
 - [x] Finish writing README.md
-- [ ] Bug Fix: Don't move to the next slide if changing to fullscreen
+- [x] Bug Fix: Don't move to the next slide if changing to fullscreen
 - [ ] Sanity Check: Check to make sure that the Slides folder and it's files actually exist
 - [ ] Feature: Add the ability to loop through all the poses in order
